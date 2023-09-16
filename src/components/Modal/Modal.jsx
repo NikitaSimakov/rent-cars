@@ -18,6 +18,9 @@ export const Modal = ({ card }) => {
       <h1>
         {make} {model}, {year}
       </h1>
+      <p>
+        {type} {mileage} {rentalPrice}
+      </p>
     </div>
   );
   // });

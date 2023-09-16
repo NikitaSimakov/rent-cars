@@ -51,6 +51,8 @@ export const CarsItem = () => {
             <p>{model},</p>
             <p>{year}</p>
             <p>{rentalPrice}</p>
+            <p>{type}</p>
+            <p>{mileage}</p>
           </div>
           <button type="button" id={id} onClick={toggleModal}>
             Learn more

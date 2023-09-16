@@ -12,7 +12,7 @@ export const CarsItem = () => {
         <li key={id}>
           <div>
             <img alt={model} src={img} width="274px" />
-            {favorites?.includes(id) ? (
+            {favorites && favorites?.includes(id) ? (
               <button
                 type="button"
                 id={id}
@@ -29,13 +29,6 @@ export const CarsItem = () => {
                 add
               </button>
             )}
-            {/* <button
-              type="button"
-              id={id}
-              onClick={() => dispatch(AddToFavorite(id))}
-            >
-              3
-            </button> */}
           </div>
           <div
             style={{

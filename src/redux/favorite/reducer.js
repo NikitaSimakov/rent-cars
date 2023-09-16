@@ -17,7 +17,6 @@ export const favoriteReducer = (state = favoriteInitialState, action) => {
       return (state = [...state, action.payload]);
     case 'favorite/deleteFavorite':
       return state.filter(favorite => favorite !== action.payload);
-      break;
     default:
       return state;
   }

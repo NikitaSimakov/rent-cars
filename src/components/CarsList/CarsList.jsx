@@ -71,7 +71,7 @@ export const CarList = () => {
       >
         <label className={css.label}>
           <p className={css.labelText}>Car brand</p>
-          <select name="make" id="make" value={filter}>
+          <select className={css.select} name="make" id="make" value={filter}>
             {makeList.map(make => (
               <option value={make}>{make}</option>
             ))}
@@ -80,6 +80,7 @@ export const CarList = () => {
         <label className={css.label} htmlFor="price">
           <p className={css.labelText}>Price/1 hour</p>
           <input
+            className={css.priceInput}
             type="number"
             step="10"
             min="10"
@@ -92,6 +93,7 @@ export const CarList = () => {
         <label className={css.label}>
           <p className={css.labelText}>Car mileage/km</p>
           <input
+            className={css.mileageInput}
             type="number"
             step="1000"
             min="1000"
@@ -101,8 +103,10 @@ export const CarList = () => {
             value={mileage}
           />
         </label>
-        <button type="submit">Search</button>
-        <button type="button" onClick={resetForm}>
+        <button className={css.submitBtn} type="submit">
+          Search
+        </button>
+        <button className={css.resetBtn} type="button" onClick={resetForm}>
           Reset
         </button>
       </form>

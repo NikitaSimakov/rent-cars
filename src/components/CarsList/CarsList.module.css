@@ -9,12 +9,35 @@
   gap: 10px;
   align-items: center
 }
-
+.select {
+  border-radius: 13px;
+  height: 35px;
+}
+.priceInput, .mileageInput {
+  border-radius: 11px;
+  height: 31px;
+  border: 1px solid black;
+}
 .labelText {
   margin-right: 5px;
   font-size: 12px;
 }
-
+.submitBtn{
+  background-color: #3470FF;
+  width: 100px;
+  height: 35px;
+  border-radius: 12px;
+  border: none;
+  color: white;
+}
+.resetBtn{
+  background-color: #3470FF;
+  width: 100px;
+  height: 35px;
+  border-radius: 12px;
+  border: none;
+  color: white;
+}
 .list {
   display: flex;
   flex-wrap: wrap;

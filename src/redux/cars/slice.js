@@ -3,6 +3,7 @@ import { getCarsThunk } from './thunks';
 
 const carsState = {
   cars: [],
+  allCars: [],
   error: '',
   isLoading: false,
   isRefreshing: false,
@@ -24,6 +25,7 @@ export const carsSlice = createSlice({
             ? payload
             : [...state.cars, ...payload];
         if (payload.length < 8) state.isEndOfCards = true;
+        if (payload.length > 8) state.allCars = payload;
       })
 
       .addMatcher(

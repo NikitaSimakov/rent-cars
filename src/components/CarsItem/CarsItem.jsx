@@ -1,4 +1,6 @@
 import { AddToFavorite, DeleteFromFavorite } from 'redux/favorite/actions';
+import css from './CarsItem.module.css';
+import { BiHeart } from 'react-icons/bi';
 const { useSelector, useDispatch } = require('react-redux');
 
 export const CarsItem = ({ toggleModal, cars }) => {
@@ -8,40 +10,45 @@ export const CarsItem = ({ toggleModal, cars }) => {
   return cars.map(car => {
     const { id, make, model, year, type, mileage, img, rentalPrice } = car;
     return (
-      <li key={id}>
-        <div key={id}>
-          <img alt={model} src={img} width="274px" />
+      <li className={css.listItem} key={id}>
+        <div key={id} className={css.imgWrapper}>
+          <img className={css.img} alt={model} src={img} width="274px" />
           {favorites && favorites?.includes(id) ? (
             <button
               type="button"
               id={id}
+              className={css.favoriteButton}
               onClick={() => dispatch(DeleteFromFavorite(id))}
             >
-              delete
+              <BiHeart width="16px" fill="blue" />
             </button>
           ) : (
             <button
               type="button"
               id={id}
+              className={css.favoriteButton}
               onClick={() => dispatch(AddToFavorite(id))}
             >
-              add
+              <BiHeart width="16px" fill="white" />
             </button>
           )}
         </div>
-        <div
-          style={{
-            display: 'flex',
-          }}
-        >
-          <p>{make}</p>
-          <p>{model},</p>
-          <p>{year}</p>
-          <p>{rentalPrice}</p>
-          <p>{type}</p>
-          <p>{mileage}</p>
+        <div className={css.mainTextWrapper}>
+          <p className={css.make}>{make}</p>
+          <p className={css.model}>{model},</p>
+          <p className={css.year}>{year}</p>
+          <p className={css.price}>{rentalPrice}</p>
         </div>
-        <button type="button" id={id} onClick={toggleModal}>
+        <div className={css.secondaryTextWrapper}>
+          <p className={css.type}>{type}</p>
+          <p className={css.mileage}>{mileage}</p>
+        </div>
+        <button
+          className={css.learnMoreBtn}
+          type="button"
+          id={id}
+          onClick={toggleModal}
+        >
           Learn more
         </button>
       </li>

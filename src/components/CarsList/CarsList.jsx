@@ -3,6 +3,7 @@ import { Modal } from 'components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCarsThunk } from 'redux/cars/thunks';
 import { makeList } from './makeList';
+import css from './CarsList.module.css';
 
 const { useEffect, useState } = require('react');
 
@@ -62,18 +63,22 @@ export const CarList = () => {
     if (event.key === 'Escape') setIsModalOpen(false);
   };
   return (
-    <div tabIndex={0} onKeyDown={handleKeyDown}>
-      <form onChange={handleFormOnChange} onSubmit={handleSubmit}>
-        <label>
-          Car brand
+    <div className={css.wrapper} tabIndex={0} onKeyDown={handleKeyDown}>
+      <form
+        className={css.form}
+        onChange={handleFormOnChange}
+        onSubmit={handleSubmit}
+      >
+        <label className={css.label}>
+          <p className={css.labelText}>Car brand</p>
           <select name="make" id="make" value={filter}>
             {makeList.map(make => (
               <option value={make}>{make}</option>
             ))}
           </select>
         </label>
-        <label htmlFor="price">
-          Price/1 hour
+        <label className={css.label} htmlFor="price">
+          <p className={css.labelText}>Price/1 hour</p>
           <input
             type="number"
             step="10"
@@ -84,8 +89,8 @@ export const CarList = () => {
             value={price}
           />
         </label>
-        <label>
-          Car mileage/km
+        <label className={css.label}>
+          <p className={css.labelText}>Car mileage/km</p>
           <input
             type="number"
             step="1000"
@@ -101,20 +106,18 @@ export const CarList = () => {
           Reset
         </button>
       </form>
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          listStyle: 'none',
-        }}
-      >
+      <ul className={css.list}>
         <CarsItem
           cars={filteredCars?.length === 0 ? cars : filteredCars}
           toggleModal={toggleModal}
         />
       </ul>
       {CarsItem && !endOfCardsList && (
-        <button type="button" onClick={() => setPageNumber(state => state + 1)}>
+        <button
+          className={css.moreBtn}
+          type="button"
+          onClick={() => setPageNumber(state => state + 1)}
+        >
           Load more
         </button>
       )}

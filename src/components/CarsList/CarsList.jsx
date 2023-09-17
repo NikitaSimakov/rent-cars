@@ -15,7 +15,7 @@ export const CarList = () => {
   const allCars = useSelector(state => state.cars.allCars);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentCar, setCurrentCar] = useState([]);
-  const [filter, setFilter] = useState('Volvo');
+  const [filter, setFilter] = useState('');
   const [price, setPrice] = useState(10);
   const [mileage, setMileage] = useState(1000);
   const [filteredCars, setFilteredCars] = useState([]);
@@ -41,6 +41,12 @@ export const CarList = () => {
     if (event.target.id === 'price') setPrice(event.target.value);
     if (event.target.id === 'mileage') setMileage(event.target.value);
   };
+  const resetForm = () => {
+    setFilter('');
+    setPrice(10);
+    setMileage(1000);
+    setFilteredCars([]);
+  };
   console.log(filteredCars);
   const handleKeyDown = event => {
     if (event.key === 'Escape') setIsModalOpen(false);
@@ -64,9 +70,7 @@ export const CarList = () => {
       >
         <label>
           Car brand
-          <select name="make" id="make">
-            {/* <option value="Volvo">Volvo</option>
-            <option value="BMW">BMW</option> */}
+          <select name="make" id="make" value={filter}>
             {makeList.map(make => (
               <option value={make}>{make}</option>
             ))}
@@ -97,6 +101,9 @@ export const CarList = () => {
           />
         </label>
         <button type="submit">Search</button>
+        <button type="button" onClick={resetForm}>
+          Reset
+        </button>
       </form>
       <ul
         style={{

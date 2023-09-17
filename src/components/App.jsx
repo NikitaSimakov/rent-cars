@@ -1,4 +1,8 @@
+import { Route, Routes } from 'react-router-dom';
 import { CarList } from './CarsList/CarsList';
+import { HomePage } from 'pages/Home/Home';
+import { FavoritesPage } from 'pages/FavoritesPage/FavoritesPage';
+import { Layout } from './Layout/Layout';
 
 export const App = () => {
   return (
@@ -12,7 +16,13 @@ export const App = () => {
     //   color: '#010101',
     // }}
     >
-      <CarList />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/catalog" element={<CarList />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+        </Route>
+      </Routes>
       {/* React homework template */}
     </div>
   );

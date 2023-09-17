@@ -25,6 +25,7 @@ export const carsSlice = createSlice({
             : [...state.cars, ...payload];
         if (payload.length < 8) state.isEndOfCards = true;
       })
+
       .addMatcher(
         action => {
           action.type.endsWith('/rejected');

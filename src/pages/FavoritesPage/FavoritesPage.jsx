@@ -2,21 +2,18 @@ import { CarsItem } from 'components/CarsItem/CarsItem';
 import { Modal } from 'components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCarsThunk } from 'redux/cars/thunks';
-
 const { useEffect, useState } = require('react');
 
-export const CarList = () => {
-  const [pageNumber, setPageNumber] = useState(1);
-
+export const FavoritesPage = () => {
   const dispatch = useDispatch();
-  const endOfCardsList = useSelector(state => state.cars.isEndOfCards);
   const cars = useSelector(state => state.cars.cars);
+  const favorites = useSelector(state => state.favorite);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentCar, setCurrentCar] = useState([]);
 
   useEffect(() => {
-    dispatch(getCarsThunk({ page: pageNumber }));
-  }, [dispatch, pageNumber]);
+    dispatch(getCarsThunk({ page: 1, limit: 32 }));
+  }, [dispatch]);
 
   const toggleModal = event => {
     setIsModalOpen(state => !state);
@@ -28,6 +25,7 @@ export const CarList = () => {
   const handleKeyDown = event => {
     if (event.key === 'Escape') setIsModalOpen(false);
   };
+  const favoriteCars = cars.filter(car => favorites.includes(car.id));
   return (
     <div tabIndex={0} onKeyDown={handleKeyDown}>
       <ul
@@ -37,13 +35,8 @@ export const CarList = () => {
           listStyle: 'none',
         }}
       >
-        <CarsItem cars={cars} toggleModal={toggleModal} />
+        <CarsItem cars={favoriteCars} toggleModal={toggleModal} />
       </ul>
-      {CarsItem && !endOfCardsList && (
-        <button type="button" onClick={() => setPageNumber(state => state + 1)}>
-          Load more
-        </button>
-      )}
       {isModalOpen && (
         <Modal card={currentCar} setIsModalOpen={setIsModalOpen} />
       )}

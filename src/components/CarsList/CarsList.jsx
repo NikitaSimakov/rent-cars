@@ -58,7 +58,6 @@ export const CarList = () => {
     setMileage(1000);
     setFilteredCars([]);
   };
-  console.log(filteredCars);
   const handleKeyDown = event => {
     if (event.key === 'Escape') setIsModalOpen(false);
   };

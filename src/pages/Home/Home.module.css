@@ -37,3 +37,7 @@
   flex-wrap: wrap;
   align-items: flex-end;
 }
+
+li > svg {
+  fill: red;
+}

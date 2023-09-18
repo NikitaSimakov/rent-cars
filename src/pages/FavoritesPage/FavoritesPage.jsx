@@ -2,6 +2,7 @@ import { CarsItem } from 'components/CarsItem/CarsItem';
 import { Modal } from 'components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCarsThunk } from 'redux/cars/thunks';
+import css from './FavoritesPage.module.css';
 const { useEffect, useState } = require('react');
 
 export const FavoritesPage = () => {
@@ -28,13 +29,7 @@ export const FavoritesPage = () => {
   const favoriteCars = cars.filter(car => favorites.includes(car.id));
   return (
     <div tabIndex={0} onKeyDown={handleKeyDown}>
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          listStyle: 'none',
-        }}
-      >
+      <ul className={css.list}>
         <CarsItem cars={favoriteCars} toggleModal={toggleModal} />
       </ul>
       {isModalOpen && (

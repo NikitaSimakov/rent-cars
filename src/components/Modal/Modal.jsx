@@ -1,3 +1,5 @@
+import React from 'react';
+import css from './Modal.module.css';
 export const Modal = ({ card, setIsModalOpen }) => {
   const { id, make, model, year, type, mileage, img, rentalPrice } = card[0];
 
@@ -7,34 +9,11 @@ export const Modal = ({ card, setIsModalOpen }) => {
   };
   return (
     <div
-      style={{
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%',
-        zIndex: '50',
-
-        background: 'rgba(0, 0, 0, 0.6)',
-      }}
+      className={css.modalBackdrop}
       onClick={handleBackdropClick}
       id="backdrop"
     >
-      <div
-        key={id}
-        style={{
-          position: 'fixed',
-          width: '500px',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          border: '1px solid black',
-          borderRadius: '15px',
-          backgroundColor: 'white',
-          zIndex: '52',
-        }}
-        id="modal"
-      >
+      <div className={css.modalWrapper} key={id} id="modal">
         <img src={img} alt={model} width="400px" />
         <h1>
           {make} {model}, {year}

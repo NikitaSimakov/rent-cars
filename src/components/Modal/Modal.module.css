@@ -22,7 +22,45 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-  padding: 50px 15px;
+  padding: 30px 15px;
+}
+
+.img {
+  margin: 0 auto;
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+
+.title h2:not(:last-child) {
+margin-right: 5px;
+}
+
+.model {
+  color: rgba(52, 112, 255, 1)
+}
+
+.accessoriesBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+}
+.rentalLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  width: 168px;
+  height: 44px;
+  border-radius: 12px;
+  color: white;
+  background-color: rgba(52, 112, 255, 1);
+  ;
 }
 
 .closeBtn {
@@ -35,3 +73,4 @@
   right: 10px;
   cursor: pointer;
 }
+

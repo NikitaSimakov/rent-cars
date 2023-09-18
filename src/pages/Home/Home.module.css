@@ -26,7 +26,7 @@
 .benefitsList {
   display: flex;
   list-style: none;
-  justify-content: space-between;
+  column-gap: 120px;
   
 }
 .benefitsList li {

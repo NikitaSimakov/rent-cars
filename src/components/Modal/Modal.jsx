@@ -1,4 +1,4 @@
-import React from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 import css from './Modal.module.css';
 export const Modal = ({ card, setIsModalOpen }) => {
   const { id, make, model, year, type, mileage, img, rentalPrice } = card[0];
@@ -21,6 +21,13 @@ export const Modal = ({ card, setIsModalOpen }) => {
         <p>
           {type} {mileage} {rentalPrice}
         </p>
+        <button
+          onClick={() => setIsModalOpen(false)}
+          className={css.closeBtn}
+          type="button"
+        >
+          <AiOutlineClose />
+        </button>
       </div>
     </div>
   );

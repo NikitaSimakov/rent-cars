@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  background-image: url('https://avisassets.abgemea.com/.imaging/inspirationLarge/dam/DMS/global/homepage/inspirational/spring/AVIS_SPRING-2023.jpg');
+
+  height: 600px;
+  background-size: cover;
+  background-position-y: center;
+}
+.title {
+  color: white;
+
+  margin-left: 100px;
+    margin-right: auto;
+    margin-top: 100px;
+
+    font-size: 50px;
+}

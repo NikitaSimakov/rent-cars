@@ -20,7 +20,7 @@ export const CarsItem = ({ toggleModal, cars }) => {
               className={css.favoriteButton}
               onClick={() => dispatch(DeleteFromFavorite(id))}
             >
-              <BiHeart width="16px" fill="blue" />
+              <BiHeart width="16px" fill="red" />
             </button>
           ) : (
             <button
@@ -29,7 +29,7 @@ export const CarsItem = ({ toggleModal, cars }) => {
               className={css.favoriteButton}
               onClick={() => dispatch(AddToFavorite(id))}
             >
-              <BiHeart width="16px" fill="white" />
+              <BiHeart width="16px" fill="blue" />
             </button>
           )}
         </div>

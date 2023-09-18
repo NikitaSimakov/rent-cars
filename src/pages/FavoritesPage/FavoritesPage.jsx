@@ -28,7 +28,7 @@ export const FavoritesPage = () => {
   };
   const favoriteCars = cars.filter(car => favorites.includes(car.id));
   return (
-    <div tabIndex={0} onKeyDown={handleKeyDown}>
+    <div className={css.wrapper} tabIndex={0} onKeyDown={handleKeyDown}>
       <ul className={css.list}>
         <CarsItem cars={favoriteCars} toggleModal={toggleModal} />
       </ul>
